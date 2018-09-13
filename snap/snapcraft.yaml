@@ -1,0 +1,22 @@
+name: fwup
+version: '1.2.5'
+summary: Configurable embedded Linux firmware update creator and runner
+description: |
+  fwup lets you create and apply firmware updates for embedded Linux-based
+  systems. It supports several power failure safe update strategies and has
+  a simple and constrained update language. It has been ported to many
+  many platforms so non-Linux users can also create SDCards or raw image
+  files for devices.
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+apps:
+    fwup:
+        command: fwup
+
+parts:
+    fwup:
+        plugin: autotools
+        source: https://github.com/fhunleth/fwup/releases/download/v1.2.5/fwup-1.2.5.tar.gz
+
