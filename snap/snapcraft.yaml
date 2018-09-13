@@ -8,15 +8,22 @@ description: |
   many platforms so non-Linux users can also create SDCards or raw image
   files for devices.
 
-grade: devel # must be 'stable' to release into candidate/stable channels
-confinement: devmode # use 'strict' once you have the right plugs and slots
+grade: stable
+confinement: strict #devmode # use 'strict' once you have the right plugs and slots
 
 apps:
     fwup:
         command: fwup
+    img2fw:
+        command: img2fwup
 
 parts:
     fwup:
         plugin: autotools
         source: https://github.com/fhunleth/fwup/releases/download/v1.2.5/fwup-1.2.5.tar.gz
+        build-packages:
+            - pkg-config
+            - libarchive-dev
+            - libconfuse-dev
+            - libsodium-dev
 
