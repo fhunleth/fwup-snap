@@ -7,7 +7,6 @@ description: |
   a simple and constrained update language. It has been ported to many
   many platforms so non-Linux users can also create SDCards or raw image
   files for devices.
-license: Apache-2.0
 
 grade: stable
 confinement: strict  # use 'strict' once you have the right plugs and slots
