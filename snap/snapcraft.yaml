@@ -32,9 +32,4 @@ parts:
         build-packages:
             - curl
             - pkg-config
-        filesets:
-            binaries:
-                - usr/bin/*
-        prime:
-            - $binaries
-            - $manpages
+            - help2man
