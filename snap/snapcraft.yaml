@@ -9,7 +9,7 @@ description: |
   files for devices.
 
 grade: stable
-confinement: strict  # use 'strict' once you have the right plugs and slots
+confinement: strict
 
 apps:
     fwup:
@@ -22,6 +22,8 @@ parts:
     fwup:
         plugin: autotools
         source: https://github.com/fhunleth/fwup/releases/download/v1.2.5/fwup-1.2.5.tar.gz
+
+        # Build a static version of fwup to avoid incompatible libconfuse versions
         override-build: |
             ./scripts/download_deps.sh
             ./scripts/build_deps.sh
