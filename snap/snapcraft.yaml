@@ -9,7 +9,7 @@ description: |
   files for devices.
 
 grade: stable
-confinement: devmode # use 'strict' once you have the right plugs and slots
+confinement: strict  # use 'strict' once you have the right plugs and slots
 
 apps:
     fwup:
@@ -17,9 +17,6 @@ apps:
         plugs:
             - removable-media
             - mount-observe
-
-    img2fwup:
-        command: img2fwup
 
 parts:
     fwup:
