@@ -30,4 +30,5 @@ parts:
             make -j $(getconf _NPROCESSORS_ONLN)
             make install
         build-packages:
+            - curl
             - pkg-config
