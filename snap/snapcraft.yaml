@@ -9,7 +9,7 @@ description: |
   files for devices.
 
 grade: stable
-confinement: strict #devmode # use 'strict' once you have the right plugs and slots
+confinement: devmode # use 'strict' once you have the right plugs and slots
 
 apps:
     fwup:
@@ -32,3 +32,9 @@ parts:
         build-packages:
             - curl
             - pkg-config
+        filesets:
+            binaries:
+                - usr/bin/*
+        prime:
+            - $binaries
+            - $manpages
