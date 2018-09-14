@@ -14,6 +14,10 @@ confinement: devmode # use 'strict' once you have the right plugs and slots
 apps:
     fwup:
         command: fwup
+        plugs:
+            - removable-media
+            - mount-observe
+
     img2fwup:
         command: img2fwup
 
@@ -33,3 +37,4 @@ parts:
             - curl
             - pkg-config
             - help2man
+
