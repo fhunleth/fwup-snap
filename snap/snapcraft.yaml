@@ -14,16 +14,20 @@ confinement: strict #devmode # use 'strict' once you have the right plugs and sl
 apps:
     fwup:
         command: fwup
-    img2fw:
+    img2fwup:
         command: img2fwup
 
 parts:
     fwup:
         plugin: autotools
         source: https://github.com/fhunleth/fwup/releases/download/v1.2.5/fwup-1.2.5.tar.gz
+        override-build: |
+            ./scripts/download_deps.sh
+            ./scripts/build_deps.sh
+            PKG_CONFIG_PATH=$PWD/build/host/deps/usr/lib/pkgconfig ./configure \
+                --enable-shared=no \
+                --prefix=$SNAPCRAFT_PART_INSTALL/usr
+            make -j $(getconf _NPROCESSORS_ONLN)
+            make install
         build-packages:
             - pkg-config
-            - libarchive-dev
-            - libconfuse-dev
-            - libsodium-dev
-
