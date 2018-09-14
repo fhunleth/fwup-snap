@@ -9,14 +9,11 @@ description: |
   files for devices.
 
 grade: stable
-confinement: strict
+confinement: classic
 
 apps:
     fwup:
         command: fwup
-        plugs:
-            - removable-media
-            - mount-observe
 
 parts:
     fwup:
